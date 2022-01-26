@@ -1,0 +1,25 @@
+Frames,Animation,UE_Ready(default False)
+31-59, Atk_H2H_Left_UB, True
+60-88, Atk_H2H_Right_UB, True
+89-130, Atk_H2H_1_LB, True
+131-171, Atk_H2H_1_UB, True
+186-196, Idle_Combat_H2H_UB, True
+197-226, Atk_H2H_Fw_UB, True
+227-243, Combat_Exit_H2H_UB, True
+244-257, Combat_Start_H2H_UB, True
+337-371, Atk_H2H_2_UB, True
+372-407, Atk_H2H_2_LB, True
+426-454, Atk_H2H_Neutral_UB, True
+476-496, Atk_H2H_3_LB, True
+497-517, Atk_H2H_3_UB, True
+547, Block_H2H_UB, True
+565-579, Combat_Start_Unarmed_UB, True
+596-611, Combat_Exit_Unarmed_UB, True
+612-650, Atk_H2H_4_LB, True
+651-689, Atk_H2H_4_UB, True
+690-726, Atk_H2H_5_LB, True
+727-763, Atk_H2H_5_UB, True
+764-801, Atk_Kick_1_UB, True
+802-840, Atk_Kick_1_LB, True
+841-873, Atk_Kick_2_LB, True
+874-908, Atk_Kick_2_UB, True

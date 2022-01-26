@@ -1,0 +1,10 @@
+Frames,Animation,UE_Ready(default False)
+1-41, Atk_Sword_1_UB, True
+42-83, Atk_Sword_2_LB, True
+84-125, Atk_Sword_2_UB, True
+139-150, Idle_Combat_Sword_UB, True
+151-192, Atk_Sword_1_LB, True
+193-208, Combat_Exit_Sword_UB, True
+209-223, Combat_Start_Sword_UB, True
+467-503, Atk_Sword_3_UB, True
+504-541, Atk_Sword_3_LB, True
