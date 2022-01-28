@@ -1,0 +1,23 @@
+Frames,Animation,UE_Ready(default False)
+1-17, Walk_Combat_GSwKa_1_UB (Battle5), True
+19-51, Atk_GKatana_Fw_UB, True
+52-84, Atk_GKatana_Left_UB, True
+86-117, Atk_GKatana_Right_UB,True
+119-160, Atk_GKatana_1_LB, True
+161-202, Atk_GKatana_1_UB, True
+204-240, Atk_GKatana_2_LB, True
+241-277, Atk_GKatana_2_UB, True
+279-313, Atk_GKatana_3_LB, True
+315-349, Atk_GKatana_3_UB, True
+351-361, Idle_Combat_GKatana_LB, True
+363-374, Idle_Combat_GKatana_UB, True
+375-407, Atk_GKatana_Neutral_UB, True
+409-418, Run_Combat_Left_GSwKa_UB (Battle5), True
+420-429, Run_Combat_Right_GSwKa_UB (Battle5), True
+431, Parry_GKatana_UB, True
+432-440, Run_Combat_Fw_GSwKa_UB (Battle5), True
+441-456, Walk_Combat_GSwKa_2_UB (Battle5), True
+536-549, Combat_Exit_GKatana_LB, True
+552-566, Combat_Start_GKatana_UB, True
+567-581, Combat_Start_GKatana_LB, True
+583-598, Combat_Exit_GKatana_UB, True

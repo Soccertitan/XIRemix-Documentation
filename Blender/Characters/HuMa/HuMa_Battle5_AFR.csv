@@ -1,0 +1,23 @@
+Frames,Animation,UE_Ready(default False)
+1-12, Idle_Combat_GSword_UB, True
+13-46, Atk_GSword_Fw_UB, True
+47-79, Atk_GSword_Left_UB, True
+80-112, Atk_GSword_Right_UB, True
+113-159, Atk_GSword_1_LB, True
+160-204, Atk_GSword_1_UB, True
+205-249, Atk_GSword_2_LB, True
+250-292, Atk_GSword_2_UB, True
+293-339, Atk_GSword_3_LB, True
+340-386, Atk_GSword_3_UB, True
+387-398, Idle_Combat_GSword_LB, True
+400-432, Atk_GSword_Neutral_UB, True
+433-449, Walk_Combat_GSwKa_UB, True 
+450-460, Run_Combat_Left_GSwKa_UB, True 
+461-471, Run_Combat_Right_GSwKa_UB, True 
+472, Parry_GSword_UB, True
+473-482, Run_Combat_Fw_GSwKa_UB, True 
+483-497, Walk_Combat_Bw_GSwKa_UB, True 
+577-592, Combat_Exit_GSword_UB, True 
+593-607, Combat_Start_GSword_UB, True 
+609-624, Combat_Exit_GSword_LB, True
+625-640, Combat_Start_GSword_LB, True

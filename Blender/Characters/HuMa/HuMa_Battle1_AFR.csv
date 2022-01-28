@@ -1,0 +1,27 @@
+Frames,Animation,UE_Ready(default False)
+1-16, Walk_UB, True
+17-45, Atk_1H_Left_UB, True
+46-74, Atk_1H_Right_UB, True
+75-116, Atk_Type1_1_LB, True
+117-157, Atk_Type1_1_UB, True
+158-170, Idle_Combat_1H_LB, True
+171-183, Idle_Combat_Type1_UB, True
+184-200, Walk_Combat_Type1_UB, True
+201-211, Run_Combat_Left_Type1_UB, True
+212-222, Run_Combat_Right_Type1_UB, True
+223-231, Run_Combat_Fw_Type1_UB, True
+232-260, Atk_1H_Fw_UB, True
+265-290, Death_Combat_UB, True
+291-306, Combat_Start_Axe_UB, True
+307-323, Combat_Start_Type1_LB, True
+323-337, Combat_Exit_Type1_LB, True
+339-357, Combat_Exit_Axe_UB, True
+358-382, Atk_1H_Neutral_UB, True
+404-444, Atk_Type1_2_LB, True
+445-486, Atk_Type1_2_UB, True
+487-526, Atk_Type1_3_LB, True
+527-566, Atk_Type1_3_UB, True
+570, Parry_Type1_UB, True
+595-596, Block_Shield_1_UB, True
+597-611, Combat_Start_Sword_UB, True
+644-660, Combat_Exit_Sword_UB, True

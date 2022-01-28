@@ -1,0 +1,14 @@
+Frames,Animation,UE_Ready(default False)
+12-40, Atk_Katana_Fw_UB, True
+41-69, Atk_Katana_Left_UB, True
+70-98, Atk_Katana_Right_UB, True
+100-133, Atk_Katana_1_LB, True
+135-168, Atk_Katana_1_UB, True
+170-210, Atk_Katana_2_LB, True
+211-251, Atk_Katana_2_UB, True
+253-293, Atk_Katana_3_LB, True
+295-335, Atk_Katana_3_UB, True
+379-406, Atk_Katana_Neutral_UB, True
+419, Parry_Katana_UB, True
+445-460, Combat_Start_Katana_UB, True
+493-508, Combat_Exit_Katana_UB, True
