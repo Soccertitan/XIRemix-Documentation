@@ -1,0 +1,15 @@
+Frames,Animation,UE_Ready(default False)
+0-39,Atk_01,True
+40-66,Atk_02,True
+67-101,Atk_03,True
+102-119,Atk_Fw,True
+120-131,Idle_Combat, True
+138-161,Death, True
+166,Block, True
+167-180,Idle, True
+181-198,Ma_Casting, True
+199-204,Ma_Casted, True
+205-216,Ma_End, True
+217-227,Run_Fw, True
+228-269,Scout, True
+270-290,Walk, True
