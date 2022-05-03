@@ -3,8 +3,8 @@ import bpy, csv
 #Change these Variables based on imports
 #Double \\ for proper file paths in Python.
 race = "HuMa"
-boneRenameCSV = 'C:\\Users\\trist\\OneDrive\\Documents\\XIRemix_Resources\\Blender\\HuMa_BoneRename.csv'
-importListCSV = 'C:\\Users\\trist\\OneDrive\\Documents\\XIRemix_Resources\\Blender\\HuMa-Imports.csv'
+boneRenameCSV = 'C:\\Users\\trist\\OneDrive\\Documents\\GitHub\\XIRemix-Documentation\\Blender\\Characters\\HuMa\\HuMa_BoneRename.csv'
+importListCSV = 'C:\\Users\\trist\\OneDrive\\Documents\\GitHub\\XIRemix-Documentation\\Blender\\Characters\\HuMa\\HuMa-Imports.csv'
 
 from csv import reader
 with open(importListCSV, 'r') as import_obj:

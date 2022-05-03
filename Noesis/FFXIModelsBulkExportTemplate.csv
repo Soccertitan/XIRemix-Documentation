@@ -1,0 +1,8 @@
+part,name,datFilePath
+body,Body_Base,ROM\28\7.dat
+hands,Hands_Base,ROM\28\52.dat
+legs,Legs_Base,ROM\28\84.dat
+feet,Feet_Base,ROM\28\116.dat
+face,FA_1,ROM\27\87.dat
+head,Sallet,ROM\27\105.dat
+weapon,BronzeKnife,ROM\30\4.dat
