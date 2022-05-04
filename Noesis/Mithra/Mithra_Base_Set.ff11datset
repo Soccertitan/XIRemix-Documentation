@@ -1,0 +1,26 @@
+NOESIS_FF11_DAT_SET
+;^ must be the first line of the file
+
+;search for dats using a path retrieved from a registry key
+;setPathKey "HKEY_LOCAL_MACHINE" "SOFTWARE\WOW6432Node\PlayOnlineUS\InstallFolder" "0001"
+
+;search for dats on a path relative to this file 
+;setPathRel "./"
+
+;search for dats on an absolute path
+;setPathAbs "c:/whatever/ff11/"
+;setPathAbs "C:\Program Files (x86)\PlayOnline\SquareEnix\FINAL FANTASY XI\"
+setPathAbs "D:\FFXI\Ashita\plugins\DATs\AshenbubsHD-Prime\"
+
+dat "__skeleton" "ROM/51/89.dat"
+dat "__animation" "ROM/51/89.dat"
+;Upper Body Animations for running/walking
+;dat "__animation" "ROM/27/83.dat"
+
+dat "face" "ROM/51/94.dat"
+;dat "head" "ROM/27/103.dat"
+dat "body" "ROM/52/13.dat"
+dat "hands" "ROM/52/57.dat"
+dat "legs" "ROM/52/88.dat"
+dat "feet" "ROM/52/119.dat"
+;dat "weapon" "ROM/30/94.dat"

@@ -2,23 +2,22 @@ import bpy, csv
 
 #Change these variables to the correct race!
 race = "HuMa"
-BoneRenameCSV = 'C:\\Users\\trist\\OneDrive\\Documents\\XIRemix_Resources\\Blender\\Characters\\HuMa_BoneRename.csv'
-
+boneRenameCSV = 'C:\\Users\\trist\\OneDrive\\Documents\\GitHub\\XIRemix-Documentation\\Blender\\Characters\\HuMa\\HuMa_BoneRename.csv'
+            
+#Used for the rename of bones
+context = bpy.context
+obj = context.object
+        
+#Imports the Bone Rename CSV and changes all the bone names.
+with open(boneRenameCSV, 'r') as read_obj:
+    bones = csv.reader(read_obj, delimiter=',')
+    for bone in bones:
+        ob = obj.pose.bones.get(bone[0])
+        if ob != None:
+            ob.name = bone[1]
+        else:
+            print("My object does not exist.")
+            
 #Renames the imported rig to the race specified.
 rig = bpy.data.objects.get("bone0000")
 rig.name = race
-
-context = bpy.context
-obj = context.object
-
-#Make sure to use double \\ for file paths. Otherwise the script will not work.
-from csv import reader
-with open(BoneRenameCSV, 'r') as read_obj:
-    reader = csv.reader(read_obj, delimiter=',')
-    for row in reader:
-        ob = obj.pose.bones.get(row[0])
-        if ob != None:
-            print("My object exists and I can operate upon it.")
-            ob.name = row[1]
-        else:
-            print("My object does not exist.")

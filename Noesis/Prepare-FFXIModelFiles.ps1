@@ -64,6 +64,11 @@ if((Test-Path "$PSScriptRoot\$Race") -eq $false)
     New-Item -Path "$PSScriptRoot\$Race" -ItemType Directory -ErrorAction Stop
 }
 
+if((Test-Path "$PSScriptRoot\_Export") -eq $false)
+{
+    New-Item -Path "$PSScriptRoot\_Export" -ItemType Directory -ErrorAction Stop
+}
+
 #Sets the path to search for DAT files.
 $regex = ";{0,1}setPathAbs `"[a-zA-Z0-9:\\\-_\.\/]*`""
 (Get-Content $FF11DatSetTemplate) -replace $regex, "setPathAbs `"$DatRootFolder`"" | Out-File -FilePath $FF11DatSetReference -ErrorAction Stop -Force
@@ -155,4 +160,4 @@ foreach ($mesh in $csvMeshes)
     }
 }
 
-Write-Output "Script completed successfully!"
+Write-Output "Script completed successfully! $PSScriptRoot\_Export\$BlenderImportCSV is ready to be used in Blender."
