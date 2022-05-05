@@ -28,11 +28,11 @@ $PartsToCheck = 'face', 'head', 'body', 'hands', 'legs', 'feet', 'weapon'
 #Creates smooth groups and exports textures in tga format.
 $commandArguments = '-rotate 180 -0 -90 -scale 90 -fbxsmoothgroups -fbxtexrelonly -fbxtexext .tga'
 
-$ExportPath = "$PSScriptRoot\_Export\$Race"
-$UEImportPath = "$PSScriptRoot\_Export\UEImport"
+$ExportPath = "$PSScriptRoot\Export\$Race"
+$UEImportPath = "$PSScriptRoot\Export\UEImport"
 $BlenderImportCSV = "$Race`-BlenderImport.csv"
 $FF11DatSetTemplate = "$PSScriptRoot\FFXIDatSetTemplate.ff11datset"
-$FF11DatSetReference = "$PSScriptRoot\$Race\$Race`_BulkSet.ff11datset"
+$FF11DatSetReference = "$PSScriptRoot\Export\$Race`_BulkSet.ff11datset"
 
 #The skeleton DAT files for each playable character.
 [string]$SkeletonDAT
@@ -64,9 +64,9 @@ if((Test-Path "$PSScriptRoot\$Race") -eq $false)
     New-Item -Path "$PSScriptRoot\$Race" -ItemType Directory -ErrorAction Stop
 }
 
-if((Test-Path "$PSScriptRoot\_Export") -eq $false)
+if((Test-Path "$PSScriptRoot\Export") -eq $false)
 {
-    New-Item -Path "$PSScriptRoot\_Export" -ItemType Directory -ErrorAction Stop
+    New-Item -Path "$PSScriptRoot\Export" -ItemType Directory -ErrorAction Stop
 }
 
 #Sets the path to search for DAT files.
@@ -135,7 +135,7 @@ foreach ($mesh in $csvMeshes)
 
     if (Test-Path -Path $fbxFile -ErrorAction SilentlyContinue)
     {
-        Add-Content -Value "$fbxFile,$UEImportPath\$partReference\SK_$Race`_$($mesh.name).fbx" -Path "$PSScriptRoot\_Export\$BlenderImportCSV"
+        Add-Content -Value "$fbxFile,$UEImportPath\$partReference\SK_$Race`_$($mesh.name).fbx" -Path "$PSScriptRoot\Export\$BlenderImportCSV"
     }
 
     #Renames the png files.
@@ -160,4 +160,4 @@ foreach ($mesh in $csvMeshes)
     }
 }
 
-Write-Output "Script completed successfully! $PSScriptRoot\_Export\$BlenderImportCSV is ready to be used in Blender."
+Write-Output "Script completed successfully! $PSScriptRoot\Export\$BlenderImportCSV is ready to be used in Blender."

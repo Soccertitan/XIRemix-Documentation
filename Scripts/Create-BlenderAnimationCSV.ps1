@@ -17,8 +17,8 @@ param(
     [string]$AnimationCategory
 )
 
-$ExportPath = "$PSScriptRoot\_Export\$Race`-BlenderAnimImport.csv"
-$UEImportPath = "$PSScriptRoot\_Export\UEImport"
+$ExportPath = "$PSScriptRoot\Export\$Race`-BlenderAnimImport.csv"
+$UEImportPath = "$PSScriptRoot\Export\UEImport"
 
 $regex = "[a-zA-Z0-9\.]*\s\-\s([a-zA-Z0-9]*\.fbx)"
 
@@ -27,9 +27,9 @@ if(!(Test-Path $AnimationFolder))
     throw "Path <$AnimationFolder> does not exist."
 }
 
-if((Test-Path "$PSScriptRoot\_Export") -eq $false)
+if((Test-Path "$PSScriptRoot\Export") -eq $false)
 {
-    New-Item -Path "$PSScriptRoot\_Export" -ItemType Directory -ErrorAction Stop
+    New-Item -Path "$PSScriptRoot\Export" -ItemType Directory -ErrorAction Stop
 }
 
 #The start of the renaming of files and creating the Blender csv file.
