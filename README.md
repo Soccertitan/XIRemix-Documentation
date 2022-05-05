@@ -67,7 +67,9 @@ To export multiple animations for use in Unreal Engine. Follow the steps outline
 ![image](https://user-images.githubusercontent.com/12266781/167032693-d0f3cf8d-84e9-4b9d-8afb-0aad26ee0ed1.png)
 
 2. Open the file in Noesis and set the following options.
+
 Animation Output: noefbxmulti
+
 Advanced Options: -rotate 180 -0 -90 -scale 90 -fbxsmoothgroups -fbxtexrelonly -fbxtexext .tga
 
 ![image](https://user-images.githubusercontent.com/12266781/167033045-0a43fcf8-c8ed-4216-bbc0-8c8cfa7c64ca.png)
