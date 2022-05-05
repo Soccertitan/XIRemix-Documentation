@@ -17,7 +17,7 @@ In order to export/import files for the XIRemix project you will need the follow
 ## 2. Noesis
 Noesis is a tool developed by Rich Whitehouse for exporting all sorts of game files into various usuable formats.
 ### 2.1 How to use Noesis
-From the repository download one of the FF11DataSetFiles to your computer. The file contains a list of parameters for which .dat files to display in the Noesis preview window. Anything with a ';' at the start of a line is considered a comment and won't be read by Noesis.
+From the repository download one of the FF11DatSetFiles to your computer. The file contains a list of parameters for which .dat files to display in the Noesis preview window. Anything with a ';' at the start of a line is considered a comment and won't be read by Noesis.
 
 ```
 ;search for dats using a path retrieved from a registry key
@@ -56,12 +56,25 @@ To use this script the following conditions must be met:
 - Ensure the "FFXIDatSetTemplate.ff11datset" file is in the same directory as the script. The script uses this template to generate a ff11datset file for the specific race.
 - A CSV file with the following headers 'part,name,datFilePath' is created. Each line is an fbx and texture to export from Noesis. A template is available in the script directory.
 
-####2.2.1 How to Run Prepare-FFXIModelFiles.ps1
+#### 2.2.1 How to Run Prepare-FFXIModelFiles.ps1
 Open a powershell command prompt. Enter the path to the .ps1 file and the approriate values for each parameter. Pressing '-' and tab will autocomplete each required field. The Race parameter is special and can be tab cycled to pick the correct Race.
 ".\Prepare-FFXIModelFiles.ps1 -NoesisExe "D:\Path\Noesis.exe" -ffxiModelCSVFilePath "C:\CSVTemplate.csv" -DatRootFolder "C:\PathToDatRoot\FFXI" -Race HuMa"
 
-### 2.3 Create-BlenderAnimationCSV
-Running this scripts renames animation files appropriately and prepares a CSV file that is used in the Blender python script FFXI-BatchJob.py. 
+### 2.3 Exporting Animations
+To export multiple animations for use in Unreal Engine. Follow the steps outlined below.
+1. Prepare a ff11datset file with the models skeleton and animation. Example is a Hume Male. No mesh data is required.
+
+![image](https://user-images.githubusercontent.com/12266781/167032693-d0f3cf8d-84e9-4b9d-8afb-0aad26ee0ed1.png)
+
+2. Open the file in Noesis and set the following options.
+Animation Output: noefbxmulti
+Advanced Options: -rotate 180 -0 -90 -scale 90 -fbxsmoothgroups -fbxtexrelonly -fbxtexext .tga
+
+![image](https://user-images.githubusercontent.com/12266781/167033045-0a43fcf8-c8ed-4216-bbc0-8c8cfa7c64ca.png)
+
+3. Run the Create-BlenderAnimationCSV.ps1
+4. Run the Prepare-UeFbxFiles.py as specified in 3.2.2 with the Animation parameter.
+5. Now the files are ready to be imported into UE.
 
 #### 2.3.1 How to Run Create-BlenderAnimationCSV
 Open a Powershell command prompt and type the correct path to the script along with the following parameters.
@@ -82,18 +95,30 @@ Before importing an FBX from Noesis, delete every object in the Blender scene. T
 
 ![Blender_Import](https://user-images.githubusercontent.com/12266781/151233218-90d02938-543f-4483-b1fc-f6d5ab32479b.PNG)
 
-When exporting the file to FBX, ensure that Leaf Bones are not added!
-
 #### 3.1.1 Creating the Bone-Rename.csv File
 Use the HuMa-BoneRename.csv file as a template for creating a new .csv file for a different race or monster. You will need to manually go through each bone from the model and note the bone name (bone0020) and your rename (leg_r) in the csv.
 
-#### 3.1.2 Preparing the Animations
-This section is being revamped with new Noesis multifbx options.
+#### 3.1.2 Mesh Export Settings
+Add Leaf Bones = False
+Bake Animation = False
+
+![image](https://user-images.githubusercontent.com/12266781/167031888-9c0a671a-c135-471d-abf2-c6d60444efa8.png)
+
+#### 3.1.3 Animation Export Settings
+The settings need to be set as follows:
+Add Leaf Bones = False
+Bake Animation = True
+Key All Bones = True (specific for UE)
+NLA Stiprs = False
+All Actions = False
+Force Start/End Keying = False
+
+![image](https://user-images.githubusercontent.com/12266781/167031448-a7fd897d-06f1-4e79-a78a-67f897b87421.png)
 
 ### 3.2 Blender Scripts
 There are two primary scripts written in python for bulk exporting for Unreal and renaming bones. Both these scripts can only be used within Blender!
 - Rename-Bones.py
-- FFXI-BatchJob.py
+- Prepare-UeFbxFiles.py
 
 #### 3.2.1 Rename-Bones.py
 Rename-Bones.py is a script that simply renames all the bones of the imported Skeleton. Take note of the race and CSV file. The race will rename the rig to that value. For meshes to be compatible with eachother in Unreal the Rig name must match as well as the bone name structure. Take note of the double backslash in the CSV file name. Without them the script will not run.
@@ -104,16 +129,15 @@ BoneRenameCSV = 'C:\\Users\\trist\\OneDrive\\Documents\\XIRemix_Resources\\Blend
 ```
 After you successfully run the script there seems to be a bug where the Bones are no longer attached to the mesh. Just save your work and close/reopen the .blender file and it will be back to normal.
 
-#### 3.2.2 FFXI-BatchJob.py
-The FFXI-BatchJob.py script is the primary one for importing fbx files, renaming the bones and rig appropriately, and exporting the fbx file to the UnrealEngine Import folder. The import.csv file is generated by the powershell script in the Noesis section. Before running the script make sure the Blender scene is completey empty!
-```
-#Change these Variables based on imports
-#Double \\ for proper file paths in Python.
-race = "HuMa"
-boneRenameCSV = 'C:\\Users\\trist\\OneDrive\\Documents\\XIRemix_Resources\\Blender\\HuMa_BoneRename.csv'
-importListCSV = 'C:\\Users\\trist\\OneDrive\\Documents\\XIRemix_Resources\\Blender\\HuMa-Imports.csv'
-```
-This script should only be used when you want to export a single mesh for the Unreal SkeletalMesh merge function.
+#### 3.2.2 Prepare-UeFbxFiles.py
+The script takes the files that were exported from Noesis. Imports them into Blender to rename the bones and Rig as specified. Then exports those files specified in the ImportCSV parameter. To use the script open the command prompt and enter the following:
+![image](https://user-images.githubusercontent.com/12266781/167030596-9e78cc63-c9bf-4b9a-950c-4f4fbad3a57e.png)
+
+- The -- after the python script allows the script to take parameters.
+- BoneCSV; the path to the CSV file to rename the bones appropriately.
+- ImportCSV; the file generated by the powershell script. It's a CSV of files to import (first column) and export location (second column).
+- RigName; What the name of the Rig should be.
+- Animation; An optional parameter. Enter in the number '1' to enable animation import/export mode. This ensure the proper switches are used when exporting the FBX files from Blender.
 
 ## 4. AltanaView
 Is amazing software for finding the .Dat files for anyting FFXI related. To use this, FFXI must be installed. Whenever you click on an item in the viewer, it shows you the file path to the DAT below, and will update to show the DAT file on the most recent item you selected. For example, changing a body from one type to another will show the new body's DAT file below.
@@ -121,4 +145,4 @@ Is amazing software for finding the .Dat files for anyting FFXI related. To use 
 AltanaView is pretty straightforward to use. I use it for when building the bulk import CSV file or looking for animation DATs.
 
 ## 5. AshenbubsHD Textures
-After downloading the textures, you can copy the DATs from FFXI to the HD textures folder (choosing NOT to overright). When working with UnrealEngine and importing the meshes, we want the 4k versions of these textures exported from Noesis. That's what all reference FFXIDataSetFiles are doing. Taking the skeletons and animations from FFXI and combining with the 4k Textures.
+After downloading the textures, you can copy the DATs from FFXI to the HD textures folder (choosing NOT to overright). When working with UnrealEngine and importing the meshes, we want the 4k versions of these textures exported from Noesis. That's what all reference FFXIDatSetFiles are doing. Taking the skeletons and animations from FFXI and combining with the 4k Textures.
