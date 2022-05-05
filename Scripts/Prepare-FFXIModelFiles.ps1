@@ -59,11 +59,6 @@ if((Test-Path $FF11DatSetTemplate) -eq $false)
     throw "Unable to find the template $FF11DatSetTemplate"
 }
 
-if((Test-Path "$PSScriptRoot\$Race") -eq $false)
-{
-    New-Item -Path "$PSScriptRoot\$Race" -ItemType Directory -ErrorAction Stop
-}
-
 if((Test-Path "$PSScriptRoot\Export") -eq $false)
 {
     New-Item -Path "$PSScriptRoot\Export" -ItemType Directory -ErrorAction Stop

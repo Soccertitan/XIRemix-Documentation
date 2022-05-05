@@ -3,14 +3,15 @@ import bpy, csv
 #Change these Variables based on imports
 #Double \\ for proper file paths in Python.
 race = "HuMa"
-boneRenameCSV = 'C:\\Users\\trist\\OneDrive\\Documents\\GitHub\\XIRemix-Documentation\\Blender\\Characters\\HuMa\\HuMa_BoneRename.csv'
-importListCSV = 'C:\\Users\\trist\\OneDrive\\Documents\\GitHub\\XIRemix-Documentation\\Blender\\Characters\\HuMa\\HuMa-Imports.csv'
+boneRenameCSV = 'C:\\Users\\trist\\OneDrive\\Documents\\GitHub\\XIRemix-Documentation\\Races\\HuMa\\HuMa_BoneRename.csv'
+importListCSV = 'C:\\Users\\trist\\OneDrive\\Documents\\GitHub\\XIRemix-Documentation\\Scripts\\Export\\HuMa-BlenderAnimImport.csv'
+#importListCSV = 'C:\\Users\\trist\\OneDrive\\Documents\\GitHub\\XIRemix-Documentation\\Scripts\\Export\\HuMa-BlenderImport.csv'
 
 from csv import reader
 with open(importListCSV, 'r') as import_obj:
     importList = csv.reader(import_obj, delimiter=',')
     for importItem in importList:
-        bpy.ops.import_scene.fbx(filepath=importItem[0],ignore_leaf_bones=True,automatic_bone_orientation=True,use_image_search=False)
+        bpy.ops.import_scene.fbx(filepath=importItem[0],ignore_leaf_bones=True,automatic_bone_orientation=True,use_image_search=False,use_anim=True)
 
         #Used for the rename of bones
         context = bpy.context
@@ -31,7 +32,7 @@ with open(importListCSV, 'r') as import_obj:
         rig.name = race
         
         #Exports The scene as an fbx file according to the file path specified in the 2nd slot.
-        bpy.ops.export_scene.fbx(filepath=importItem[1],add_leaf_bones=False)
+        bpy.ops.export_scene.fbx(filepath=importItem[1],add_leaf_bones=False,bake_anim=True,bake_anim_use_all_bones=True,bake_anim_use_nla_strips=False,bake_anim_use_all_actions=False,bake_anim_force_startend_keying=False)
         
         #Removes the children from the scene and prepares for next import
         for child in rig.children:

@@ -2,7 +2,7 @@ import bpy, csv
 
 #Change these variables to the correct race!
 race = "HuMa"
-boneRenameCSV = 'C:\\Users\\trist\\OneDrive\\Documents\\GitHub\\XIRemix-Documentation\\Blender\\Characters\\HuMa\\HuMa_BoneRename.csv'
+boneRenameCSV = 'C:\\Users\\trist\\OneDrive\\Documents\\GitHub\\XIRemix-Documentation\\Races\\HuMa\\HuMa_BoneRename.csv'
             
 #Used for the rename of bones
 context = bpy.context

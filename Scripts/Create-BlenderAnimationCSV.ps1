@@ -46,12 +46,8 @@ foreach ($file in $files)
     if($file.Name -match $regex)
     {
         $fileName = $file.Name -replace $regex, "A_$Race$AnimationCategory`_`$1"
-        Rename-Item -Path $file -NewName $fileName -ErrorAction Continue
     
-        if(Test-Path -Path "$AnimationFolder\$fileName")
-        {
-            Add-Content -Value "$AnimationFolder\$fileName,$UEImportPath\$fileName" -Path $ExportPath
-        }
+        Add-Content -Value "$($file.Fullname),$UEImportPath\$fileName" -Path $ExportPath
     }
 }
 
