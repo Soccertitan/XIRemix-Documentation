@@ -41,6 +41,8 @@ if($AnimationCategory.Length -ge 1)
     $AnimationCategory = "_$AnimationCategory"
 }
 
+Clear-Content -Path $ExportPath -ErrorAction SilentlyContinue
+
 foreach ($file in $files)
 {
     if($file.Name -match $regex)
