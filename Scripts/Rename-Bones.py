@@ -1,8 +1,8 @@
 import bpy, csv
 
 #Change these variables to the correct race!
-race = "HuMa"
-boneRenameCSV = 'C:\\Users\\trist\\OneDrive\\Documents\\GitHub\\XIRemix-Documentation\\Races\\HuMa\\HuMa_BoneRename.csv'
+RigName = "Taru"
+boneRenameCSV = 'C:\\Users\\trist\\OneDrive\\Documents\\GitHub\\XIRemix-Documentation\\Races\\Taru\\Taru_BoneRename.csv'
             
 #Used for the rename of bones
 context = bpy.context
@@ -20,4 +20,4 @@ with open(boneRenameCSV, 'r') as read_obj:
             
 #Renames the imported rig to the race specified.
 rig = bpy.data.objects.get("bone0000")
-rig.name = race
+rig.name = RigName

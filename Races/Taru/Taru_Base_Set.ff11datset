@@ -12,13 +12,13 @@ NOESIS_FF11_DAT_SET
 ;setPathAbs "C:\Program Files (x86)\PlayOnline\SquareEnix\FINAL FANTASY XI\"
 setPathAbs "D:\FFXI\Ashita\plugins\DATs\AshenbubsHD-Prime\"
 
-dat "__skeleton" "ROM/27/82.dat"
-dat "__animation" "ROM/32/15.dat"
-;Hand-to-Hand
-dat "face" "ROM/27/87.dat"
-dat "head" "ROM/27/103.dat"
-dat "body" "ROM/28/7.dat"
-dat "hands" "ROM/28/52.dat"
-dat "legs" "ROM/28/84.dat"
-dat "feet" "ROM/28/116.dat"
-;dat "weapon" "ROM/29/20.dat"
+dat "__skeleton" "ROM/46/93.dat"
+dat "__animation" "ROM/46/93.dat"
+
+dat "face" "ROM/46/110.dat"
+;dat "head" "ROM/27/103.dat"
+dat "body" "ROM/47/17.dat"
+dat "hands" "ROM/47/61.dat"
+dat "legs" "ROM/47/92.dat"
+dat "feet" "ROM/47/123.dat"
+;dat "weapon" "ROM/30/94.dat"
