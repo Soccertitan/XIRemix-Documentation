@@ -11,7 +11,7 @@ In order to export/import files for the XIRemix project you will need the follow
 2. [Blender](https://www.blender.org/)
 3. [AltanaView](https://github.com/mynameisgonz/AltanaView) by MyNameisGonz.
 4. [Official FFXI Client](http://www.playonline.com/ff11us/download/media/install_win.html) from Steam or their official website.
-5. [Unreal Engine 4.26](https://www.unrealengine.com/en-US/) from EpicGames version UE4.26.
+5. [Unreal Engine 5.0.1](https://www.unrealengine.com/en-US/) from EpicGames version UE5.0.1.
 6. [AshenbubsHD Textures](https://www.nexusmods.com/finalfantasy11/mods/1)
 
 ## 2. Noesis
