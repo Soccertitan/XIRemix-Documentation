@@ -13,7 +13,7 @@ NOESIS_FF11_DAT_SET
 setPathAbs "D:\FFXI\Ashita\plugins\DATs\AshenbubsHD-Prime\"
 
 dat "__skeleton" "ROM/51/89.dat"
-dat "__animation" "ROM/51/89.dat"
+;dat "__animation" "ROM/51/89.dat"
 ;Upper Body Animations for running/walking
 ;dat "__animation" "ROM/27/83.dat"
 
