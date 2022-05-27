@@ -83,7 +83,6 @@ Open a Powershell command prompt and type the correct path to the script along w
 ".\Create-BlenderAnimationCSV.ps1 -AnimationFolder D:\Path\AnimationFolder -Race HuMa -AnimationCategory Battle1"
 Parameters:
 - AnimationFolder (mandatory): Specify the folder path to the animations exported from Noesis.
-- Race (mandatory): Inserts text to the file name. ie; A_HuMa_bb00.fbx
 - AnimationCategory (Optional): Inserts text to the file name. ie; A_HuMa_Battle1_bb00.fbx
 
 ## 3. Blender
